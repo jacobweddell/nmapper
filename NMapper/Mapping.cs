@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ObjectMapper
+namespace NMapper
 {
     [AttributeUsage(AttributeTargets.Property, Inherited = false)]
     public class Mapping : Attribute

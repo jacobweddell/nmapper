@@ -1,17 +1,17 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ObjectMapper.Tests.TestObjects;
+using NMapper.Tests.TestObjects;
 using System.Collections.Generic;
 
-namespace ObjectMapper.Tests
+namespace NMapper.Tests
 {
     [TestClass]
-    public class ObjectMapperTests
+    public class NMapperTests
     {
-        private readonly ObjectMapper _objectMapper;
-        public ObjectMapperTests()
+        private readonly Mapper _mapper;
+        public NMapperTests()
         {
-            _objectMapper = new ObjectMapper();
+            _mapper = new Mapper();
         }
         [TestMethod]
         public void Map_SimpleValidObject_NewbjectReturned()
@@ -23,7 +23,7 @@ namespace ObjectMapper.Tests
                 Property3 = 42
             };
 
-            var testObject2 = _objectMapper.Map<TestObject2>(testObject1);
+            var testObject2 = _mapper.Map<TestObject2>(testObject1);
 
             Assert.AreEqual(nameof(TestObject2), testObject2.GetType().Name);
             Assert.AreEqual(testObject1.Property1, testObject2.Property1);
@@ -46,7 +46,7 @@ namespace ObjectMapper.Tests
                 Property2 = testObject1
             };
 
-            var testObject4 = _objectMapper.Map<TestObject4>(testObject3);
+            var testObject4 = _mapper.Map<TestObject4>(testObject3);
 
             Assert.AreEqual(nameof(TestObject4), testObject4.GetType().Name);
             Assert.AreEqual(testObject3.Property1, testObject4.Property1);
@@ -72,7 +72,7 @@ namespace ObjectMapper.Tests
                 Property2 = testObject1
             };
 
-            var testObject4 = _objectMapper.Map<TestObject4>(testObject3);
+            var testObject4 = _mapper.Map<TestObject4>(testObject3);
 
             testObject1.Property1 = "goodbye";
 
@@ -99,7 +99,7 @@ namespace ObjectMapper.Tests
                { nameof(Person1.LastName), nameof(Person2.FamilyName) }
            };
 
-            var person2 = _objectMapper.Map<Person2>(person1, mapping);
+            var person2 = _mapper.Map<Person2>(person1, mapping);
 
             Assert.AreEqual(nameof(Person2), person2.GetType().Name);
             Assert.AreEqual(person1.FirstName, person2.GivenName);
@@ -116,7 +116,7 @@ namespace ObjectMapper.Tests
                 MyPropertyC = 42
             };
 
-            var testObject2 = _objectMapper.Map<TestObject1>(testObject5);
+            var testObject2 = _mapper.Map<TestObject1>(testObject5);
 
             Assert.AreEqual(nameof(TestObject1), testObject2.GetType().Name);
             Assert.AreEqual(testObject5.MyPropertyA, testObject2.Property1);
