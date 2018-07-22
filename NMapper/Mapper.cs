@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace NMapper
 {
-    public class Mapper
+    public static class Mapper
     {
-        public T Map<T>(object sourceObject)
+        public static T Map<T>(object sourceObject)
         {
             T targetObject = GetInstance<T>();
 
@@ -16,7 +16,7 @@ namespace NMapper
             return targetObject;
         }
 
-        public T Map<T>(object sourceObject, Dictionary<string, string> mappingToUse)
+        public static T Map<T>(object sourceObject, Dictionary<string, string> mappingToUse)
         {
             T targetObject = GetInstance<T>();
 
@@ -25,7 +25,7 @@ namespace NMapper
             return targetObject;
         }
 
-        private List<PropertyInfo> GetPropertyList(object objectToUse)
+        private static List<PropertyInfo> GetPropertyList(object objectToUse)
         {
             var type = objectToUse.GetType();
             var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -33,12 +33,12 @@ namespace NMapper
             return new List<PropertyInfo>(properties);
         }
 
-        private T GetInstance<T>()
+        private static T GetInstance<T>()
         {
            return Activator.CreateInstance<T>();
         }
 
-        private void CopyProperties(object sourceObject, object targetObject)
+        private static void CopyProperties(object sourceObject, object targetObject)
         {
             var targetProperties = GetPropertyList(targetObject);
             var sourceProperties = GetPropertyList(sourceObject);
@@ -54,7 +54,7 @@ namespace NMapper
             }
         }
 
-        private void CopyProperties(object sourceObject, object targetObject, Dictionary<string, string> mapping)
+        private static void CopyProperties(object sourceObject, object targetObject, Dictionary<string, string> mapping)
         {
             var targetProperties = GetPropertyList(targetObject);
             var sourceProperties = GetPropertyList(sourceObject);
@@ -75,12 +75,12 @@ namespace NMapper
             }
         }
 
-        private void SetTargetProperty(PropertyInfo sourceProperty, PropertyInfo targetProperty, object sourceObject, object targetObject)
+        private static void SetTargetProperty(PropertyInfo sourceProperty, PropertyInfo targetProperty, object sourceObject, object targetObject)
         {
             targetProperty.SetValue(targetObject, sourceProperty.GetValue(sourceObject));
         }
 
-        private PropertyInfo GetPropertyByName(IEnumerable<PropertyInfo> properties, string name)
+        private static PropertyInfo GetPropertyByName(IEnumerable<PropertyInfo> properties, string name)
         {
             return properties.FirstOrDefault(sp => sp.Name.Equals(name) || (sp.GetCustomAttribute<Mapping>()?.Name?.Equals(name) ?? false));
         }
