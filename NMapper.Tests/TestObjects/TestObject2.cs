@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ObjectMapper.Tests.TestObjects
+namespace NMapper.Tests.TestObjects
 {
     public class TestObject2
     {

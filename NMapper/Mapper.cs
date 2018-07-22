@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
 
-namespace ObjectMapper
+namespace NMapper
 {
-    public class ObjectMapper
+    public class Mapper
     {
         public T Map<T>(object sourceObject)
         {

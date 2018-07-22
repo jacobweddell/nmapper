@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E0919463-F3C1-4725-AD7B-0B8F63012477}</ProjectGuid>
+    <ProjectGuid>{E8B59996-F83D-4176-A63B-B2BE34AC8FE4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ObjectMapper.Tests</RootNamespace>
-    <AssemblyName>ObjectMapper.Tests</AssemblyName>
+    <RootNamespace>NMapper.Tests</RootNamespace>
+    <AssemblyName>NMapper.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -48,7 +48,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ObjectMapperTests.cs" />
+    <Compile Include="NMapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestObjects\Person1.cs" />
     <Compile Include="TestObjects\Person2.cs" />
@@ -62,9 +62,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ObjectMapper\ObjectMapper.csproj">
-      <Project>{64ad198d-98ec-47f3-bd0d-62ad42cc4db1}</Project>
-      <Name>ObjectMapper</Name>
+    <ProjectReference Include="..\NMapper\NMapper.csproj">
+      <Project>{5af88157-3e78-4e13-8996-08a4de13ee57}</Project>
+      <Name>NMapper</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
